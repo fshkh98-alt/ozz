@@ -7,7 +7,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role { ADMIN }
+enum Role {
+  ADMIN
+}
 
 model Admin {
   id           String   @id @default(cuid())
@@ -30,8 +32,22 @@ model Profile {
   updatedAt    DateTime @updatedAt
 }
 
-enum SkillCategory { PROGRAMMING CYBERSECURITY NETWORKING OS TOOLS OTHER }
-enum SkillLevel    { EXPLORING LEARNING FAMILIAR INTERMEDIATE ADVANCED }
+enum SkillCategory {
+  PROGRAMMING
+  CYBERSECURITY
+  NETWORKING
+  OS
+  TOOLS
+  OTHER
+}
+
+enum SkillLevel {
+  EXPLORING
+  LEARNING
+  FAMILIAR
+  INTERMEDIATE
+  ADVANCED
+}
 
 model Skill {
   id        String        @id @default(cuid())
@@ -43,7 +59,12 @@ model Skill {
   updatedAt DateTime      @updatedAt
 }
 
-enum ProjectStatus { IDEA IN_PROGRESS COMPLETED ARCHIVED }
+enum ProjectStatus {
+  IDEA
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
 
 model Project {
   id           String        @id @default(cuid())
@@ -111,7 +132,11 @@ model Certification {
   updatedAt        DateTime  @updatedAt
 }
 
-enum PostStatus { DRAFT PUBLISHED SCHEDULED }
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  SCHEDULED
+}
 
 model Category {
   id    String @id @default(cuid())
@@ -121,9 +146,9 @@ model Category {
 }
 
 model Tag {
-  id       String    @id @default(cuid())
-  name     String    @unique
-  slug     String    @unique
+  id       String      @id @default(cuid())
+  name     String      @unique
+  slug     String      @unique
   posts    Post[]
   writeups Writeup[]
 }
@@ -149,7 +174,14 @@ model Post {
   updatedAt      DateTime   @updatedAt
 }
 
-enum WriteupType { CTF LAB RESEARCH NOTES TOOL_EXPERIMENT VULN_ANALYSIS }
+enum WriteupType {
+  CTF
+  LAB
+  RESEARCH
+  NOTES
+  TOOL_EXPERIMENT
+  VULN_ANALYSIS
+}
 
 model Writeup {
   id          String      @id @default(cuid())
