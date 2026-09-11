@@ -1,0 +1,234 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role { ADMIN }
+
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(ADMIN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Profile {
+  id           String   @id @default(cuid())
+  displayName  String   @default("Ozaib")
+  title        String   @default("Cybersecurity Student")
+  shortBio     String?
+  longBio      String?
+  currentFocus String?
+  interests    String?
+  avatarUrl    String?
+  updatedAt    DateTime @updatedAt
+}
+
+enum SkillCategory { PROGRAMMING CYBERSECURITY NETWORKING OS TOOLS OTHER }
+enum SkillLevel    { EXPLORING LEARNING FAMILIAR INTERMEDIATE ADVANCED }
+
+model Skill {
+  id        String        @id @default(cuid())
+  name      String
+  category  SkillCategory
+  level     SkillLevel
+  order     Int           @default(0)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+enum ProjectStatus { IDEA IN_PROGRESS COMPLETED ARCHIVED }
+
+model Project {
+  id           String        @id @default(cuid())
+  title        String
+  slug         String        @unique
+  shortDesc    String
+  fullDesc     String?
+  content      String?
+  technologies String[]
+  category     String?
+  githubUrl    String?
+  demoUrl      String?
+  images       String[]
+  featured     Boolean       @default(false)
+  status       ProjectStatus @default(IDEA)
+  startDate    DateTime?
+  endDate      DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Experience {
+  id           String    @id @default(cuid())
+  company      String
+  companyUrl   String?
+  position     String
+  description  String?
+  technologies String[]
+  location     String?
+  startDate    DateTime
+  endDate      DateTime?
+  current      Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Education {
+  id          String    @id @default(cuid())
+  institution String
+  degree      String
+  field       String?
+  description String?
+  logoUrl     String?
+  link        String?
+  location    String?
+  startDate   DateTime
+  endDate     DateTime?
+  current     Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Certification {
+  id               String    @id @default(cuid())
+  name             String
+  issuer           String
+  issueDate        DateTime
+  expirationDate   DateTime?
+  credentialId     String?
+  showCredentialId Boolean   @default(true)
+  credentialUrl    String?
+  fileUrl          String?
+  description      String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+enum PostStatus { DRAFT PUBLISHED SCHEDULED }
+
+model Category {
+  id    String @id @default(cuid())
+  name  String @unique
+  slug  String @unique
+  posts Post[]
+}
+
+model Tag {
+  id       String    @id @default(cuid())
+  name     String    @unique
+  slug     String    @unique
+  posts    Post[]
+  writeups Writeup[]
+}
+
+model Post {
+  id             String     @id @default(cuid())
+  title          String
+  slug           String     @unique
+  excerpt        String?
+  content        String
+  coverImage     String?
+  categoryId     String?
+  category       Category?  @relation(fields: [categoryId], references: [id])
+  tags           Tag[]
+  readingTime    Int?
+  status         PostStatus @default(DRAFT)
+  featured       Boolean    @default(false)
+  publishedAt    DateTime?
+  seoTitle       String?
+  seoDescription String?
+  canonicalUrl   String?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+}
+
+enum WriteupType { CTF LAB RESEARCH NOTES TOOL_EXPERIMENT VULN_ANALYSIS }
+
+model Writeup {
+  id          String      @id @default(cuid())
+  title       String
+  slug        String      @unique
+  excerpt     String?
+  content     String
+  coverImage  String?
+  type        WriteupType
+  tags        Tag[]
+  status      PostStatus  @default(DRAFT)
+  publishedAt DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model Achievement {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  date        DateTime
+  category    String?
+  imageUrl    String?
+  url         String?
+  createdAt   DateTime @default(now())
+}
+
+model SocialLink {
+  id       String  @id @default(cuid())
+  platform String
+  url      String
+  icon     String?
+  label    String?
+  visible  Boolean @default(true)
+  order    Int     @default(0)
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  url       String
+  altText   String?
+  caption   String?
+  mimeType  String
+  sizeBytes Int
+  createdAt DateTime @default(now())
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  ip        String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model SiteSettings {
+  id                 String   @id @default("singleton")
+  siteName           String   @default("Ozaib")
+  siteDescription    String?
+  logoUrl            String?
+  faviconUrl         String?
+  accentColor        String   @default("#2DD4BF")
+  defaultLanguage    String   @default("ar")
+  availableLanguages String[] @default(["ar", "en"])
+  maintenanceMode    Boolean  @default(false)
+  footerText         String?
+  cvUrl              String?
+  analyticsEnabled   Boolean  @default(true)
+  updatedAt          DateTime @updatedAt
+}
+
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  country   String?
+  device    String?
+  referrer  String?
+  createdAt DateTime @default(now())
+}

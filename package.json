@@ -1,0 +1,53 @@
+{
+  "name": "ozaib",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "tsx prisma/seed.ts",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "next": "15.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@prisma/client": "5.20.0",
+    "next-auth": "5.0.0-beta.22",
+    "bcryptjs": "2.4.3",
+    "zod": "3.23.8",
+    "clsx": "2.1.1",
+    "tailwind-merge": "2.5.2",
+    "@tiptap/react": "2.9.1",
+    "@tiptap/pm": "2.9.1",
+    "@tiptap/starter-kit": "2.9.1",
+    "@tiptap/extension-link": "2.9.1",
+    "@tiptap/extension-image": "2.9.1",
+    "@tiptap/extension-table": "2.9.1",
+    "@tiptap/extension-table-row": "2.9.1",
+    "@tiptap/extension-table-header": "2.9.1",
+    "@tiptap/extension-table-cell": "2.9.1",
+    "@tiptap/extension-code-block-lowlight": "2.9.1",
+    "lowlight": "3.1.0",
+    "highlight.js": "11.10.0",
+    "sanitize-html": "2.13.1"
+  },
+  "devDependencies": {
+    "typescript": "5.6.2",
+    "@types/node": "22.5.5",
+    "@types/react": "18.3.5",
+    "@types/react-dom": "18.3.0",
+    "@types/bcryptjs": "2.4.6",
+    "tailwindcss": "3.4.10",
+    "postcss": "8.4.45",
+    "autoprefixer": "10.4.20",
+    "prisma": "5.20.0",
+    "tsx": "4.19.0",
+    "@types/sanitize-html": "2.13.0",
+    "@tailwindcss/typography": "0.5.15"
+  }
+}
