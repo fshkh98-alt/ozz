@@ -40,7 +40,6 @@ enum SkillCategory {
   TOOLS
   OTHER
 }
-
 enum SkillLevel {
   EXPLORING
   LEARNING
@@ -146,9 +145,9 @@ model Category {
 }
 
 model Tag {
-  id       String      @id @default(cuid())
-  name     String      @unique
-  slug     String      @unique
+  id       String    @id @default(cuid())
+  name     String    @unique
+  slug     String    @unique
   posts    Post[]
   writeups Writeup[]
 }
