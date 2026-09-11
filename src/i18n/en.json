@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "education": "Education",
+    "certifications": "Certifications",
+    "blog": "Blog",
+    "writeups": "Writeups",
+    "achievements": "Achievements",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Ozaib",
+    "subtitle": "Cybersecurity Student",
+    "exploreWork": "Explore My Work",
+    "readBlog": "Read My Blog",
+    "contactMe": "Contact Me"
+  },
+  "common": {
+    "readMore": "Read more",
+    "downloadCv": "Download CV",
+    "empty": "No content here yet.",
+    "viewProject": "View project",
+    "sourceCode": "Source code",
+    "liveDemo": "Live demo",
+    "present": "Present",
+    "back": "Back",
+    "notFound": "Not found"
+  },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Your message was sent successfully, thanks for reaching out.",
+    "error": "Something went wrong. Please try again later."
+  },
+  "resume": {
+    "title": "Resume / CV",
+    "unavailable": "No resume is available for download yet."
+  }
+}

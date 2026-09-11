@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "about": "نبذة",
+    "skills": "المهارات",
+    "projects": "المشاريع",
+    "experience": "الخبرات",
+    "education": "التعليم",
+    "certifications": "الشهادات",
+    "blog": "المدونة",
+    "writeups": "Writeups",
+    "achievements": "الإنجازات",
+    "contact": "تواصل"
+  },
+  "home": {
+    "title": "Ozaib",
+    "subtitle": "طالب أمن سيبراني",
+    "exploreWork": "استكشف أعمالي",
+    "readBlog": "اقرأ المدونة",
+    "contactMe": "تواصل معي"
+  },
+  "common": {
+    "readMore": "اقرأ المزيد",
+    "downloadCv": "تحميل السيرة الذاتية",
+    "empty": "لا يوجد محتوى هنا بعد.",
+    "viewProject": "عرض المشروع",
+    "sourceCode": "الكود المصدري",
+    "liveDemo": "معاينة حية",
+    "present": "حتى الآن",
+    "back": "رجوع",
+    "notFound": "غير موجود"
+  },
+  "theme": {
+    "dark": "داكن",
+    "light": "فاتح",
+    "system": "النظام"
+  },
+  "contact": {
+    "title": "تواصل معي",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "subject": "الموضوع",
+    "message": "الرسالة",
+    "send": "إرسال",
+    "sending": "جارٍ الإرسال...",
+    "success": "تم إرسال رسالتك بنجاح، شكرًا لتواصلك.",
+    "error": "حدث خطأ، حاول مرة أخرى لاحقًا."
+  },
+  "resume": {
+    "title": "السيرة الذاتية",
+    "unavailable": "لا توجد سيرة ذاتية متاحة للتحميل حاليًا."
+  }
+}
